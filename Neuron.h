@@ -3,9 +3,18 @@
 #include "DendriteSynapse.h"
 #include "AxonSynapse.h"
 
+
 class Neuron
 {
 public:
+
+   struct Dendrite
+   {
+      std::shared_ptr<Neuron> m_sourceNeuron;
+      double m_weight;
+      double m_value;
+   }
+
    Neuron();
    ~Neuron();
 
@@ -17,9 +26,10 @@ public:
    /** Latches input signals, sums, and presents results to the output synapses */
    void process();
 
-private:
-   void age();
+   /* Depreciate the contribution of inactive synapses and find new connections */
+   void sleep();
 
-   std::vector<std::shared_ptr<DendriteSynapse> > m_inputs;
-   std::vector<std::shared_ptr<AxonSynapse> > m_outputs;
+private:
+   std::vector<Dendrite> m_inputs;
+   std::vector<std::shared_ptr<Neuron> > m_outputs;
 }

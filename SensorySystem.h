@@ -1,5 +1,9 @@
 #include "Neuron.h"
 
+/**
+ * System of neurons at the first layer that receive stimulus from the outside world.
+ * The input side remains hardwired.
+ */
 class SensorySystem
 {
 public:
