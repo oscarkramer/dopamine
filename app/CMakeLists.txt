@@ -1,2 +1,2 @@
-add_executable (dopamine dopamine.cpp)
-target_link_libraries (dopamine libdopamine)
+add_executable (dope dopamine.cpp)
+target_link_libraries (dope dopamine)
