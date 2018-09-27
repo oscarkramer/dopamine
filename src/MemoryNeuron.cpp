@@ -2,12 +2,27 @@
 
 using namespace std;
 
-MemoryNeuron::MemoryNeuron() {}
-MemoryNeuron::~MemoryNeuron() {}
+MemoryNeuron::MemoryNeuron()
+{
 
-void MemoryNeuron::latch() {}
+}
+MemoryNeuron::~MemoryNeuron()
+{
 
-void MemoryNeuron::process() {}
+}
 
-void MemoryNeuron::sleep() {}
+void MemoryNeuron::latch()
+{
+
+}
+
+void MemoryNeuron::process()
+{
+
+}
+
+void MemoryNeuron::sleep()
+{
+
+}
 

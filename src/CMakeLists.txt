@@ -1,4 +1,4 @@
 file(GLOB SOURCE_FILES "*.cpp" )
+set(SOURCE_FILES ${SOURCE_FILES} PARENT_SCOPE)
 message("SOURCE_FILES = ${SOURCE_FILES}")
 
-add_library (dopamine ${SOURCE_FILES})

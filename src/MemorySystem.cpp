@@ -2,7 +2,16 @@
 
 using namespace std;
 
-MemorySystem::MemorySystem() {}
-MemorySystem::~MemorySystem() {}
+MemorySystem::MemorySystem()
+{
 
-void MemorySystem::stimulate(const vector<double> perception) {}
+}
+MemorySystem::~MemorySystem()
+{
+
+}
+
+void MemorySystem::stimulate(const vector<double> perception)
+{
+
+}

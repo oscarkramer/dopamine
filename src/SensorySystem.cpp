@@ -2,8 +2,18 @@
 
 using namespace std;
 
-SensorySystem::SensorySystem() {}
-SensorySystem::~SensorySystem() {}
+SensorySystem::SensorySystem()
+{
 
-void SensorySystem::stimulate(const vector<double> perception) {}
+}
+
+SensorySystem::~SensorySystem()
+{
+
+}
+
+void SensorySystem::stimulate(const vector<double> perception)
+{
+
+}
 

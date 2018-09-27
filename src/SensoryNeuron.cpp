@@ -2,7 +2,16 @@
 
 using namespace std;
 
-SensoryNeuron::SensoryNeuron() {}
-SensoryNeuron::~SensoryNeuron() {}
+SensoryNeuron::SensoryNeuron()
+{
 
-void SensoryNeuron::sense(const double& level) {}
+}
+SensoryNeuron::~SensoryNeuron()
+{
+
+}
+
+void SensoryNeuron::sense(const double &level)
+{
+
+}

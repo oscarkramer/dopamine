@@ -2,16 +2,41 @@
 
 using namespace std;
 
-Brain::Brain() {}
+Brain::Brain()
+{
+   // Initialize network:
 
-Brain::~Brain() {}
+   // Load prior memory states:
 
-void Brain::stimulate(const vector<double> perception) {}
+}
 
-const vector<double> Brain::conclude() {}
+Brain::~Brain()
+{
+   // Save all new memories:
+   // Teardown network:
+}
 
-void Brain::reward(const double& level) {}
+void Brain::stimulate(const vector<double> perception)
+{
+   // Pass the stimulus to the sensory system to begin processing:
+}
 
-void Brain::sleep() {}
+const vector<double> Brain::decision()
+{
 
-void Brain::age() {}
+}
+
+void Brain::reward(const double& level)
+{
+
+}
+
+void Brain::sleep()
+{
+
+}
+
+void Brain::age()
+{
+
+}

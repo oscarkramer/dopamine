@@ -20,7 +20,7 @@ public:
    void stimulate(const std::vector<double> perception);
 
    /** Brain's conclusion mapped to the decision space for comparison to training sets */
-   const std::vector<double> conclude();
+   const std::vector<double> decision();
 
    /** Apply global reward for close match to training set for reinforcing (or discouraging)
     * current network state */
