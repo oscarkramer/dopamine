@@ -1,3 +1,6 @@
+#ifndef MemoryNeuron_H
+#define MemoryNeuron_H
+
 #include "Neuron.h"
 
 class MemoryNeuron : public Neuron
@@ -17,4 +20,6 @@ public:
 private:
    double m_response;
    std::vector<Dendrite> m_inputs;
-}
+};
+
+#endif

@@ -1,4 +1,7 @@
-#include "Neuron.h"
+#ifndef SensorySystem_H
+#define SensorySystem_H
+
+#include "SensoryNeuron.h"
 
 /**
  * System of neurons at the first layer that receive stimulus from the outside world.
@@ -10,9 +13,11 @@ public:
    SensorySystem();
    ~SensorySystem();
 
-   void stimulate(const vector<double> perception);
+   void stimulate(const std::vector<double> perception);
 
 private:
    std::vector<std::shared_ptr<SensoryNeuron> > m_sensoryNeurons;
 
-}
+};
+
+#endif

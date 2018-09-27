@@ -1,8 +1,8 @@
+#ifndef Neuron_H
+#define Neuron_H
+
 #include <memory>
 #include <vector>
-#include "DendriteSynapse.h"
-#include "AxonSynapse.h"
-
 
 class Neuron
 {
@@ -13,7 +13,7 @@ public:
       std::shared_ptr<Neuron> m_sourceNeuron;
       double m_weight;
       double m_value;
-   }
+   };
 
    Neuron();
    ~Neuron();
@@ -32,4 +32,6 @@ public:
 private:
    std::vector<Dendrite> m_inputs;
    std::vector<std::shared_ptr<Neuron> > m_outputs;
-}
+};
+
+#endif

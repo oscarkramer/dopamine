@@ -1,7 +1,11 @@
+#ifndef Brain_H
+#define Brain_H
+
 #include <memory>
 #include <vector>
-#include "SensorySystem.h"
-#include "MotorSystem.h"
+#include <SensorySystem.h>
+#include <CognitiveSystem.h>
+#include <MemorySystem.h>
 
 class Brain
 {
@@ -13,10 +17,10 @@ public:
    ~Brain();
 
    /** Presents vector of outside world event quantified for the given sensory system */
-   void stimulate(const vector<double> perception);
+   void stimulate(const std::vector<double> perception);
 
    /** Brain's conclusion mapped to the decision space for comparison to training sets */
-   const vector<double> conclude()
+   const std::vector<double> conclude();
 
    /** Apply global reward for close match to training set for reinforcing (or discouraging)
     * current network state */
@@ -30,7 +34,9 @@ private:
    void age();
 
    std::shared_ptr<SensorySystem> m_sensorySystem;
-   std::shared_ptr<MotorSystem> m_motorSystem;
+   std::shared_ptr<CognitiveSystem> m_cognitiveSystem;
+   std::shared_ptr<MemorySystem> m_memorySystem;
    std::vector<std::shared_ptr<Neuron> > m_interNeurons;
-   std::vector<std::shared_ptr<AxonSynapse> > m_outputs;
-}
+};
+
+#endif

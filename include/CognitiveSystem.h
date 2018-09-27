@@ -1,3 +1,6 @@
+#ifndef CognitiveSystem_H
+#define CognitiveSystem_H
+
 #include "Neuron.h"
 
 /**
@@ -11,9 +14,11 @@ public:
    ~CognitiveSystem();
 
    /** The decision is in the form of an N-tuple, likely a simple N=1 boolean */
-   vector<double>& decision();
+   std::vector<double>& decision();
 
 private:
    std::vector<std::shared_ptr<Neuron> > m_neurons;
 
-}
+};
+
+#endif
