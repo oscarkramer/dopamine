@@ -6,10 +6,14 @@
 #include <SensorySystem.h>
 #include <CognitiveSystem.h>
 #include <MemorySystem.h>
+#include <Neuron.h>
 
 class Brain
 {
 public:
+   //! Singleton implementation.
+   static Brain& instance();
+
    /** Initializes sensory and motor systems as well as initial internal network */
    Brain();
 
@@ -30,13 +34,16 @@ public:
     * and training information. */
    void sleep();
 
+   /** Each time a neuron is created, it is registered as a member */
+   void registerNeuron(std::shared_ptr<Neuron> neuron);
+
 private:
    void age();
 
    std::shared_ptr<SensorySystem> m_sensorySystem;
    std::shared_ptr<CognitiveSystem> m_cognitiveSystem;
    std::shared_ptr<MemorySystem> m_memorySystem;
-   std::vector<std::shared_ptr<Neuron> > m_interNeurons;
+   std::vector<std::shared_ptr<Neuron> > m_neurons;
 };
 
 #endif

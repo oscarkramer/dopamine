@@ -3,7 +3,7 @@
 
 int main()
 {
-   Brain newBrain;
+   Brain newBrain(std::shared_ptr<Neuron>());
 
    std::cout << "Hello, World!" << std::endl;
    return 0;

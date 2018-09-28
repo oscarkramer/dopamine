@@ -13,6 +13,7 @@ public:
    public:
       Dendrite(Neuron* myNeuron, const double& weight=1.0);
       void activate(const double& level=1.0);
+      void age();
 
    private:
       std::shared_ptr<Neuron> m_owner;
@@ -32,8 +33,11 @@ public:
    /** Latches input signals, sums, and presents results to the output synapses */
    virtual void process();
 
-   /* Depreciate the contribution of inactive synapses and find new connections */
+   /** Depreciate the contribution of inactive synapses and find new connections */
    virtual void sleep();
+
+   /** Apply global degradation to input dendrites to eventually eliminate unused synapses */
+   virtual void age();
 
 private:
    std::vector<std::shared_ptr<Dendrite> > m_inputs;
