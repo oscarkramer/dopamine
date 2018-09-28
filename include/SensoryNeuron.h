@@ -3,13 +3,16 @@
 
 #include "Neuron.h"
 
+/**
+ * A sensory neuron accepts "analog" input stimulus (for example, one band pixel of an
+ * RGB image), and converts it into the first layer of the neural net. These neurons are
+ * contained inside a parent SensorySystem
+ */
 class SensoryNeuron : public Neuron
 {
 public:
    SensoryNeuron();
    ~SensoryNeuron();
-
-   void sense(const double& level);
 };
 
 #endif

@@ -12,7 +12,7 @@ SensorySystem::~SensorySystem()
 
 }
 
-void SensorySystem::stimulate(const vector<double> perception)
+void SensorySystem::sense(const vector<double> perception)
 {
 
 }

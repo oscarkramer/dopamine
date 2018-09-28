@@ -10,7 +10,12 @@ public:
 
    struct Dendrite
    {
-      std::shared_ptr<Neuron> m_sourceNeuron;
+   public:
+      Dendrite(Neuron* myNeuron, const double& weight=1.0);
+      void activate(const double& level=1.0);
+
+   private:
+      std::shared_ptr<Neuron> m_owner;
       double m_weight;
       double m_value;
    };
@@ -18,7 +23,8 @@ public:
    Neuron();
    ~Neuron();
 
-   void connectToThis(std::shared_ptr<Neuron> input, const double& weight=1.0);
+   /** Creates a dendrite connection to the input neuron with specified initial weight */
+   std::shared_ptr<Dendrite> connectToThis(const double& weight=1.0);
 
    /** "Dopamine" flood to reinforce (positive) [or punish (negative)] current state */
    virtual void reward(const double& level=1.0);
@@ -30,8 +36,8 @@ public:
    virtual void sleep();
 
 private:
-   std::vector<Dendrite> m_inputs;
-   std::vector<std::shared_ptr<Neuron> > m_outputs;
+   std::vector<std::shared_ptr<Dendrite> > m_inputs;
+   std::vector<std::shared_ptr<Dendrite> > m_outputs;
 };
 
 #endif

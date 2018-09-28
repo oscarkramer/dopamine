@@ -12,9 +12,9 @@ CognitiveSystem::~CognitiveSystem()
 
 }
 
-/** The decision is in the form of an N-tuple, likely a simple N=1 boolean */
-vector<double>& CognitiveSystem::decision()
+std::vector<double>& CognitiveSystem::getDecision()
 {
-
+   return m_decision;
 }
+
 

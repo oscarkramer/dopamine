@@ -11,7 +11,7 @@ MemorySystem::~MemorySystem()
 
 }
 
-void MemorySystem::stimulate(const vector<double> perception)
+void MemorySystem::latch()
 {
 
 }

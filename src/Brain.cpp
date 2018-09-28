@@ -15,7 +15,7 @@ Brain::~Brain()
    // Teardown network:
 }
 
-void Brain::stimulate(const vector<double> perception)
+void Brain::sense(const vector<double> perception)
 {
    // Pass the stimulus to the sensory system to begin processing:
 }

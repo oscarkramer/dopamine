@@ -11,7 +11,3 @@ SensoryNeuron::~SensoryNeuron()
 
 }
 
-void SensoryNeuron::sense(const double &level)
-{
-
-}

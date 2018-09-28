@@ -17,10 +17,10 @@ public:
    ~Brain();
 
    /** Presents vector of outside world event quantified for the given sensory system */
-   void stimulate(const std::vector<double> perception);
+   void sense(const std::vector<double> perception);
 
    /** Brain's conclusion mapped to the decision space for comparison to training sets */
-   const std::vector<double> decision();
+   const std::vector<double>& getDecision();
 
    /** Apply global reward for close match to training set for reinforcing (or discouraging)
     * current network state */

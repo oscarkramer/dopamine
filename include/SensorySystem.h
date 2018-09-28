@@ -13,11 +13,10 @@ public:
    SensorySystem();
    ~SensorySystem();
 
-   void stimulate(const std::vector<double> perception);
+   void sense(const std::vector<double> perception);
 
 private:
    std::vector<std::shared_ptr<SensoryNeuron> > m_sensoryNeurons;
-
 };
 
 #endif
