@@ -1,4 +1,12 @@
+//===============================================================
+//  D O P A M I N E     >(@ > @)<
+//  Experimental Neural Network with Global Reward Reinforcement
+//  See LICENSE file in top directory
+//===============================================================
+
 #include <Brain.h>
+#include <Config.h>
+#include <MemoryNeuron.h>
 
 using namespace std;
 
@@ -10,6 +18,11 @@ Brain& Brain::instance()
 
 Brain::Brain()
 {
+   // Initialize static configuration from config file:
+   auto config = Config::instance();
+   MemoryNeuron::configure();
+   Neuron::Dendrite::configure();
+
    // Initialize network:
    // Load prior memory states:
 

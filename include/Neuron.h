@@ -1,3 +1,9 @@
+//===============================================================
+//  D O P A M I N E     >(@ > @)<
+//  Experimental Neural Network with Global Reward Reinforcement
+//  See LICENSE file in top directory
+//===============================================================
+
 #ifndef Neuron_H
 #define Neuron_H
 
@@ -8,17 +14,19 @@ class Neuron
 {
 public:
 
-   struct Dendrite
+   class Dendrite
    {
    public:
-      Dendrite(Neuron* myNeuron, const double& weight=1.0);
+      Dendrite(const double& weight=1.0);
       void activate(const double& level=1.0);
       void age();
 
-   private:
-      std::shared_ptr<Neuron> m_owner;
+      /** Initializes static members once at program startup (called from Brain) */
+      static void configure();
+
       double m_weight;
       double m_value;
+      static double s_agingRate;
    };
 
    Neuron();
@@ -30,7 +38,7 @@ public:
    /** "Dopamine" flood to reinforce (positive) [or punish (negative)] current state */
    virtual void reward(const double& level=1.0);
 
-   /** Latches input signals, sums, and presents results to the output synapses */
+   /** Latches input signals, sums, and presents resulting state to the output synapses */
    virtual void process();
 
    /** Depreciate the contribution of inactive synapses and find new connections */
@@ -39,9 +47,22 @@ public:
    /** Apply global degradation to input dendrites to eventually eliminate unused synapses */
    virtual void age();
 
-private:
+   double getState () const  { return m_state; }
+   std::vector<std::shared_ptr<Dendrite> >& getInputs() { return m_inputs; }
+   std::vector<std::shared_ptr<Dendrite> >& getOutputs() { return m_outputs; }
+
+protected:
+   /** If this neuron contributed to a high reward outcome, latch the memory by duplicating this
+    * and freezing the weights and connections. The input and output connections will be
+    * forever preserved, and the new memory neuron will not explore new connections */
+   void latchMemory();
+
    std::vector<std::shared_ptr<Dendrite> > m_inputs;
    std::vector<std::shared_ptr<Dendrite> > m_outputs;
+   double m_state;
+   double m_highThreshold; //!< Threshold for creating good memory, latches new max
+   double m_lowThreshold; //!< Threshold for creating bad memory, latches new min
+
 };
 
 #endif

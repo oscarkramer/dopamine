@@ -1,3 +1,9 @@
+//===============================================================
+//  D O P A M I N E     >(@ > @)<
+//  Experimental Neural Network with Global Reward Reinforcement
+//  See LICENSE file in top directory
+//===============================================================
+
 #ifndef Brain_H
 #define Brain_H
 
@@ -5,7 +11,6 @@
 #include <vector>
 #include <SensorySystem.h>
 #include <CognitiveSystem.h>
-#include <MemorySystem.h>
 #include <Neuron.h>
 
 class Brain
@@ -14,10 +19,10 @@ public:
    //! Singleton implementation.
    static Brain& instance();
 
-   /** Initializes sensory and motor systems as well as initial internal network */
+   /** Initializes sensory, memory and cognitive systems as well as initial internal network */
    Brain();
 
-   /** Painless destruction */
+   /** Painless destruction with memory retention */
    ~Brain();
 
    /** Presents vector of outside world event quantified for the given sensory system */
@@ -42,7 +47,6 @@ private:
 
    std::shared_ptr<SensorySystem> m_sensorySystem;
    std::shared_ptr<CognitiveSystem> m_cognitiveSystem;
-   std::shared_ptr<MemorySystem> m_memorySystem;
    std::vector<std::shared_ptr<Neuron> > m_neurons;
 };
 

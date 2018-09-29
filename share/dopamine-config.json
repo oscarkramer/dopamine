@@ -1,0 +1,8 @@
+{
+    "agingRate": 0.01,
+    "sensorySize": 5,
+    "numLayers": 10
+    "neuronsPerLayer": 10,
+    "memEpsilon": 0.05,
+    "recallThreshold": 0.8
+}

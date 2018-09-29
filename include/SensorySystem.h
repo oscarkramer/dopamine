@@ -1,3 +1,9 @@
+//===============================================================
+//  D O P A M I N E     >(@ > @)<
+//  Experimental Neural Network with Global Reward Reinforcement
+//  See LICENSE file in top directory
+//===============================================================
+
 #ifndef SensorySystem_H
 #define SensorySystem_H
 

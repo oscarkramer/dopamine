@@ -1,11 +1,16 @@
+//===============================================================
+//  D O P A M I N E     >(@ > @)<
+//  Experimental Neural Network with Global Reward Reinforcement
+//  See LICENSE file in top directory
+//===============================================================
+
 #ifndef CognitiveSystem_H
 #define CognitiveSystem_H
 
-#include "Neuron.h"
+#include <Neuron.h>
 
 /**
- * System of neurons at the final layer that arrive at a specific decision vector.
- * They remain hardwired and do not reconnect on the output side.
+ * Subsystem of neurons at the final layer that arrive at a specific decision vector.
  */
 class CognitiveSystem
 {
@@ -13,7 +18,7 @@ public:
    CognitiveSystem();
    ~CognitiveSystem();
 
-   /** The decision is in the form of an N-tuple, likely a simple N=1 boolean */
+   /** The decision is in the form of an N-tuple, likely a simple confidence scalar */
    std::vector<double>& getDecision();
 
 private:
