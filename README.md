@@ -1,3 +1,5 @@
+For the Google project of the same name, go [here](https://github.com/google/dopamine). 
+
 # DOPAMINE          >(@ > @)<
 ### Experimental Neural Network with Global Reward Reinforcement.
 Personal research in progress.
