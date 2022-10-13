@@ -51,7 +51,8 @@ public:
    std::vector<std::shared_ptr<Dendrite> >& getInputs() { return m_inputs; }
    std::vector<std::shared_ptr<Dendrite> >& getOutputs() { return m_outputs; }
 
-   /** Callback to timer interrupt to effect decays */
+   /** Callback to timer interrupt to effect decays, connection exploration, or cleanup. 
+    *  Should be overridden. */
    virtual void processTimerEvent() {}
    
 protected:
