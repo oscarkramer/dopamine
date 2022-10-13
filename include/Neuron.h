@@ -51,6 +51,9 @@ public:
    std::vector<std::shared_ptr<Dendrite> >& getInputs() { return m_inputs; }
    std::vector<std::shared_ptr<Dendrite> >& getOutputs() { return m_outputs; }
 
+   /** Callback to timer interrupt to effect decays */
+   virtual void processTimerEvent() {}
+   
 protected:
    /** If this neuron contributed to a high reward outcome, latch the memory by duplicating this
     * and freezing the weights and connections. The input and output connections will be
@@ -61,8 +64,8 @@ protected:
    std::vector<std::shared_ptr<Dendrite> > m_outputs;
    double m_state;
    double m_highThreshold; //!< Threshold for creating good memory, latches new max
-   double m_lowThreshold; //!< Threshold for creating bad memory, latches new min
-
+   double m_lowThreshold;  //!< Threshold for creating bad memory, latches new min
+   double m_dopeLevel;     //!< Dopamine level decays with time, acts as reward for previous decision
 };
 
 #endif
