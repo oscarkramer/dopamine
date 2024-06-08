@@ -18,7 +18,7 @@
 class MemoryNeuron : public Neuron
 {
 public:
-   MemoryNeuron(Neuron& dupThis);
+   MemoryNeuron(Neuron& rememberThis);
 
    /** Only activates if similar input to original experience is encountered. */
    void process() override final;

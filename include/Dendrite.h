@@ -7,6 +7,10 @@
 #ifndef DOPAMINE_DENDRITE_H
 #define DOPAMINE_DENDRITE_H
 
+/**
+ * Dendrites receive signals from an Axon and are adjusted by the dendrite's weight for
+ * accumulation in the neuron.
+ */
 class Dendrite
 {
 public:

@@ -18,6 +18,18 @@ Neuron::Neuron()
    Brain::instance().registerNeuron(make_shared<Neuron>(*this));
 }
 
+Neuron::Neuron(Neuron& dupThis)
+{
+   for (auto &dendrite : dupThis.m_dendrites)
+   {
+      // The ordering of dendrites corresponds to latched inputs, used later for signal comparison:
+      m_dendrites.emplace_back(dendrite);
+   }
+
+   m_axon = (dupThis.m_axon);
+}
+
+
 Neuron::~Neuron()
 {
 
@@ -26,7 +38,7 @@ Neuron::~Neuron()
 shared_ptr<Dendrite> Neuron::connectToThis(const double& weight)
 {
    auto dendrite = make_shared<Dendrite>(weight);
-   m_inputs.emplace_back(dendrite);
+   m_dendrites.emplace_back(dendrite);
    return dendrite;
 }
 
@@ -59,7 +71,7 @@ void Neuron::sleep()
 
 void Neuron::age()
 {
-   for (auto &dendrite : m_inputs)
+   for (auto &dendrite : m_dendrites)
       dendrite->age();
 }
 

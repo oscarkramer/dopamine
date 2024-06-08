@@ -10,12 +10,16 @@
 #include <memory>
 #include <vector>
 #include <Dendrite.h>
+#include <Axon.h>
 
 class Neuron
 {
 public:
 
    Neuron();
+
+   Neuron(Neuron& dupThis);
+
    ~Neuron();
 
    /** Creates a dendrite connection to the input neuron with specified initial weight */
@@ -34,8 +38,8 @@ public:
    virtual void age();
 
    double getState () const  { return m_state; }
-   std::vector<std::shared_ptr<Dendrite> >& getInputs() { return m_inputs; }
-   std::vector<std::shared_ptr<Dendrite> >& getOutputs() { return m_outputs; }
+   std::vector<std::shared_ptr<Dendrite> >& getInputs() { return m_dendrites; }
+   std::shared_ptr<Axon>& getOutput() { return m_axon; }
 
    /** Callback to timer interrupt to effect decays, connection exploration, or cleanup. 
     *  Should be overridden. */
@@ -47,8 +51,8 @@ protected:
     * forever preserved, and the new memory neuron will not explore new connections */
    void latchMemory();
 
-   std::vector<std::shared_ptr<Dendrite> > m_inputs;
-   std::vector<std::shared_ptr<Dendrite> > m_outputs;
+   std::vector<std::shared_ptr<Dendrite> > m_dendrites;
+   std::shared_ptr<Axon> m_axon;
    double m_state;
    double m_highThreshold; //!< Threshold for creating good memory, latches new max
    double m_lowThreshold;  //!< Threshold for creating bad memory, latches new min

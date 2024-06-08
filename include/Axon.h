@@ -7,6 +7,9 @@
 #ifndef DOPAMINE_AXON_H
 #define DOPAMINE_AXON_H
 
+/**
+ * Axons serve as output streams for connection to multiple dendrites
+ */
 class Axon
 {
 public:
