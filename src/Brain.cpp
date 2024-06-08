@@ -5,10 +5,14 @@
 //===============================================================
 
 #include <Brain.h>
-#include <Config.h>
 #include <MemoryNeuron.h>
+#include <Dendrite.h>
+#include <Axon.h>
+#include <kommons/AppConfig.h>
+
 
 using namespace std;
+using namespace ka;
 
 Brain& Brain::instance()
 {
@@ -19,9 +23,10 @@ Brain& Brain::instance()
 Brain::Brain()
 {
    // Initialize static configuration from config file:
-   auto config = Config::instance();
+   auto config = AppConfig::instance();
    MemoryNeuron::configure();
-   Neuron::Dendrite::configure();
+   Dendrite::configure();
+   Axon::configure();
 
    // Initialize network:
    // Load prior memory states:

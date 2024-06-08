@@ -1,5 +1,8 @@
 #include <iostream>
 #include <Brain.h>
+#include <kommons/AppConfig.h>
+
+using namespace ka;
 
 int main()
 {

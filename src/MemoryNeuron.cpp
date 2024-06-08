@@ -6,9 +6,11 @@
 
 #include <MemoryNeuron.h>
 #include <Brain.h>
-#include <Config.h>
+#include <kommons/AppConfig.h>
+#include <cmath>
 
 using namespace std;
+using namespace ka;
 
 double MemoryNeuron::s_memEpsilon = 0;
 double MemoryNeuron::s_recallThreshold = 0;
@@ -50,7 +52,7 @@ void MemoryNeuron::process()
 
 void MemoryNeuron::configure ()
 {
-   s_memEpsilon = Config::instance().asFloat("memEpsilon");
-   s_recallThreshold = Config::instance().asFloat("recallThreshold");
+   AppConfig::instance()->get("memEpsilon", s_memEpsilon);
+   AppConfig::instance()->get("recallThreshold", s_recallThreshold);
 }
 

@@ -6,32 +6,11 @@
 
 #include <Neuron.h>
 #include <MemoryNeuron.h>
-#include <Config.h>
 #include <Brain.h>
+#include <kommons/AppConfig.h>
 
 using namespace std;
-double  Neuron::Dendrite::s_agingRate = 0;
-
-Neuron::Dendrite::Dendrite(const double& weight)
-      :  m_weight (weight),
-         m_value(0)
-{
-}
-
-void Neuron::Dendrite::activate(const double& level)
-{
-   m_value = level*m_weight;
-}
-
-void Neuron::Dendrite::age()
-{
-   m_weight *= s_agingRate;
-}
-
-void Neuron::Dendrite::configure()
-{
-   s_agingRate = Config::instance().asFloat("agingRate");
-}
+using namespace ka;
 
 Neuron::Neuron()
       :  m_state(0)
@@ -44,7 +23,7 @@ Neuron::~Neuron()
 
 }
 
-shared_ptr<Neuron::Dendrite> Neuron::connectToThis(const double& weight)
+shared_ptr<Dendrite> Neuron::connectToThis(const double& weight)
 {
    auto dendrite = make_shared<Dendrite>(weight);
    m_inputs.emplace_back(dendrite);

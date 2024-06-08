@@ -9,25 +9,11 @@
 
 #include <memory>
 #include <vector>
+#include <Dendrite.h>
 
 class Neuron
 {
 public:
-
-   class Dendrite
-   {
-   public:
-      Dendrite(const double& weight=1.0);
-      void activate(const double& level=1.0);
-      void age();
-
-      /** Initializes static members once at program startup (called from Brain) */
-      static void configure();
-
-      double m_weight;
-      double m_value;
-      static double s_agingRate;
-   };
 
    Neuron();
    ~Neuron();
